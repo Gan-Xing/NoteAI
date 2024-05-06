@@ -54,6 +54,8 @@
   });
 </script>
 
+<svelte:options customElement={{ tag: 'note-ai', shadow: 'open' }} />
+
 {#if editor}
   <div bind:this={menuElement} class="menu">
     <button
