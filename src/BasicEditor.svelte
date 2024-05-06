@@ -5,7 +5,7 @@
   import BubbleMenu from "@tiptap/extension-bubble-menu";
   import type { Editor as EditorType } from "@tiptap/core";
   import { DragAndDrop, SlashCommands } from "@/extentions";
-  import SlashCommandPalette from "./components/SlashCommands.svelte";
+  import SlashCommandPalette from "@/components/SlashCommands.svelte";
   import italic from "@/assets/svg/italic.svg";
 
   let element: HTMLDivElement;
@@ -30,19 +30,19 @@
       content: "<p>Hello World! 🌍️</p>",
       onTransaction: () => {
         editor = editor;
-        // if (!editor.state.selection.empty) {
-        //   const { from, to } = editor.state.selection;
-        //   const start = editor.view.coordsAtPos(from);
-        //   const end = editor.view.coordsAtPos(to);
-        //   const box = menuElement.getBoundingClientRect();
-        //   const middle = (start.left + end.left) / 2 - box.width / 2;
+        if (!editor.state.selection.empty) {
+          const { from, to } = editor.state.selection;
+          const start = editor.view.coordsAtPos(from);
+          const end = editor.view.coordsAtPos(to);
+          const box = menuElement.getBoundingClientRect();
+          const middle = (start.left + end.left) / 2 - box.width / 2;
 
-        //   menuElement.style.left = `${middle}px`;
-        //   menuElement.style.top = `${start.top - box.height - 10}px`;
-        //   menuElement.style.visibility = "visible";
-        // } else {
-        //   menuElement.style.visibility = "hidden";
-        // }
+          menuElement.style.left = `${middle}px`;
+          menuElement.style.top = `${start.top - box.height - 10}px`;
+          menuElement.style.visibility = "visible";
+        } else {
+          menuElement.style.visibility = "hidden";
+        }
       },
     });
   });

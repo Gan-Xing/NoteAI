@@ -1,5 +1,5 @@
 <script lang="ts">
-  import TiptapEditor from './Basic.svelte'
+  import TiptapEditor from '@/BasicEditor.svelte'
 </script>
 
 <main>
